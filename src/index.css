@@ -1,11 +1,11 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Space Mono', monospace;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 700;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #C5E4E7;
+  background-color: #c5e4e7;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,3 +17,8 @@ body {
   margin: 0;
 }
 
+.space-mono-bold-italic {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-style: italic;
+}

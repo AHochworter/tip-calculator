@@ -4,23 +4,51 @@
 }
 
 .button {
-  height: 50px;
-  width: 100px;
+  height: 3em;
+  width: 7em;
   background-color: #00474a;
   color: white;
   border-radius: 10px;
-  margin: 3px;
+  margin: 0.25em;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+}
+
+.form-bill-input {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
 }
 
 .bill-input-wrapper {
   display: flex;
+  width: 95%;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  /* border: solid rgb(249, 192, 255) 1px; */
+}
+
+.tip-percent-wrapper {
+  margin-top: 2.5em;
+  margin-bottom: 1.2em;
+  width: 95%;
+  /* border: solid green 1px; */
+}
+
+.num-of-people-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* border: solid blueviolet 1px; */
+  width: 95%;
+  margin-top: 1.5em;
 }
 
 .tip-percent-label {
   display: block; /* Change to block */
-  margin-bottom: 10px; /* Add margin-bottom for spacing */
+  margin-bottom: 0.5em; /* Add margin-bottom for spacing */
 }
 
 .button-wrapper {
@@ -28,11 +56,28 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  margin-top: 10px;
+  justify-content: center;
+  margin-top: 0.5em;
 }
 
-.button-wrapper input {
-  margin-right: 5px;
+.input-field {
+  background-color: hsl(189, 41%, 97%);
+  height: 2.5em;
+  width: 100%;
+  text-align: right;
+  border-radius: 5px;
+  border: none;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px; /* Adjust this value as needed */
+  transform: translateY(-50%);
 }
 
 .bill-label,
