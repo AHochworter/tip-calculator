@@ -1,3 +1,43 @@
-.bill-label {
+.bill-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  height: 50px;
+  width: 100px;
+  background-color: #00474a;
+  color: white;
+  border-radius: 10px;
+  margin: 3px;
+}
+
+.bill-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tip-percent-label {
+  display: block; /* Change to block */
+  margin-bottom: 10px; /* Add margin-bottom for spacing */
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.button-wrapper input {
+  margin-right: 5px;
+}
+
+.bill-label,
+.tip-percent-label,
+.num-people-label {
   color: black;
+  margin-right: 10px;
 }
