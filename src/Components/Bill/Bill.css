@@ -10,6 +10,8 @@
   color: white;
   border-radius: 10px;
   margin: 0.25em;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
 }
 
 .form-bill-input {
@@ -26,20 +28,20 @@
   justify-content: center;
   margin-top: 0.5em;
   margin-bottom: 1em;
-  border: solid rgb(249, 192, 255) 1px;
+  /* border: solid rgb(249, 192, 255) 1px; */
 }
 
 .tip-percent-wrapper {
   margin-top: 2.5em;
   margin-bottom: 1.2em;
   width: 95%;
-  border: solid green 1px;
+  /* border: solid green 1px; */
 }
 
 .num-of-people-wrapper {
   display: flex;
   flex-direction: column;
-  border: solid blueviolet 1px;
+  /* border: solid blueviolet 1px; */
   width: 95%;
   margin-top: 1.5em;
 }
@@ -61,7 +63,7 @@
 .input-field {
   background-color: hsl(189, 41%, 97%);
   height: 2.5em;
-  width: 98%;
+  width: 100%;
   text-align: right;
   border-radius: 5px;
   border: none;
