@@ -1,42 +1,45 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* #root {
+margin: 0;
+} */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.header {
+  display: flex;
+  border: solid red 1px;
+  justify-content: center;
+  margin: 7em 0em 4.5em 0em
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calculator-wrapper {
+  height: 27em;
+  width: 50em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h2 {
+  color: black;
 }
 
-.card {
-  padding: 2em;
+.bill-wrapper {
+  height: 90%;
+  width: 45%;
+  border: solid green 1px;
+
 }
 
-.read-the-docs {
-  color: #888;
+.tip-wrapper {
+  height: 90%;
+  width: 45%;
+  background-color: #00474A;
+  border-radius: 12px;
 }

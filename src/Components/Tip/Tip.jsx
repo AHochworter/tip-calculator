@@ -4,7 +4,7 @@ import './Tip.css';
 function Tip() {
   return (
     <div>
-      <h1>TIP GOES HERE!</h1>
+      <h2>Tip</h2>
     </div>
   );
 }
