@@ -1,7 +1,7 @@
 import React from 'react';
 import './Tip.css';
 
-function Tip() {
+function Tip({ billData }) {
   return (
     <>
       <div className="tip-amount-wrapper">

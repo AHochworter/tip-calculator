@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import './Bill.css';
 
-function Bill() {
-  const [formData, setFormData] = useState({
-    bill: 0,
-    tipPercent: 0,
-    numOfPeople: 0,
-  });
-
+function Bill({ billData, updateBillData }) {
   const setValueFromForm = event => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+
+    const numericalValue = value.includes('%') ? parseFloat(value) : value;
+
+    updateBillData({ [name]: numericalValue });
   };
 
   return (
@@ -26,7 +24,7 @@ function Bill() {
             name="bill"
             className="input-field"
             placeholder="0"
-            value={formData.bill}
+            value={billData.bill}
             onChange={setValueFromForm}
           />
         </div>
@@ -91,7 +89,7 @@ function Bill() {
             name="numOfPeople"
             className="input-field num-people"
             placeholder="0"
-            value={formData.numOfPeople}
+            value={billData.numOfPeople}
             onChange={setValueFromForm}
           />
         </div>
