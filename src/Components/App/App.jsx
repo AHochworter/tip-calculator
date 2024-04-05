@@ -14,6 +14,8 @@ function App() {
     setBillData({ ...billData, ...data });
   };
 
+  //function to do the math might go here??  There's a note over in Tip component?  Devin thinks we might try it here first.
+
   return (
     <div className="app">
       <header className="header">

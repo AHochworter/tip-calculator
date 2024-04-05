@@ -2,6 +2,7 @@ import React from 'react';
 import './Tip.css';
 
 function Tip({ billData }) {
+  //put a function here that does the math.  Using the billData you can create the variables to accomplish the answers.
   return (
     <>
       <div className="tip-amount-wrapper">
