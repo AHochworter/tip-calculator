@@ -8,12 +8,11 @@ margin: 0;
   align-items: center;
 }
 
-
 .header {
   display: flex;
-  border: solid red 1px;
+  /* border: solid red 1px; */
   justify-content: center;
-  margin: 7em 0em 4.5em 0em
+  margin: 7em 0em 4.5em 0em;
 }
 
 .calculator-wrapper {
@@ -34,12 +33,11 @@ h2 {
   height: 90%;
   width: 45%;
   border: solid green 1px;
-
 }
 
 .tip-wrapper {
   height: 90%;
   width: 45%;
-  background-color: #00474A;
+  background-color: #00474a;
   border-radius: 12px;
 }

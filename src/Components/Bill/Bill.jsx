@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Bill.css';
 
-function Bill() {
+function Bill({ billData, updateBillData }) {
+  const setValueFromForm = event => {
+    const { name, value } = event.target;
+
+    const numericalValue = value.includes('%') ? parseFloat(value) : value;
+
+    updateBillData({ [name]: numericalValue });
+  };
+
   return (
     <form className="form-bill-input">
       <div className="bill-input-wrapper">
@@ -16,7 +24,8 @@ function Bill() {
             name="bill"
             className="input-field"
             placeholder="0"
-            // value={}
+            value={billData.bill}
+            onChange={setValueFromForm}
           />
         </div>
       </div>
@@ -28,38 +37,43 @@ function Bill() {
           <input
             type="button"
             className="button"
-            name="tip-percent"
+            name="tipPercent"
             value="5%"
+            onClick={setValueFromForm}
           />
           <input
             type="button"
             className="button"
-            name="tip-percent"
+            name="tipPercent"
             value="10%"
+            onClick={setValueFromForm}
           />
           <input
             type="button"
             className="button"
-            name="tip-percent"
+            name="tipPercent"
             value="15%"
+            onClick={setValueFromForm}
           />
           <input
             type="button"
             className="button"
-            name="tip-percent"
+            name="tipPercent"
             value="25%"
           />
           <input
             type="button"
             className="button"
-            name="tip-percent"
+            name="tipPercent"
             value="50%"
+            onClick={setValueFromForm}
           />
           <input
             type="button"
             className="button"
-            name="tip-percent"
+            name="tipPercent"
             value="Custom"
+            onClick={setValueFromForm} //don't think this is going to work
           />
         </div>
       </div>
@@ -72,9 +86,11 @@ function Bill() {
           <input
             type="number"
             id="num-of-people"
-            name="number-of-people"
+            name="numOfPeople"
             className="input-field num-people"
             placeholder="0"
+            value={billData.numOfPeople}
+            onChange={setValueFromForm}
           />
         </div>
       </div>
