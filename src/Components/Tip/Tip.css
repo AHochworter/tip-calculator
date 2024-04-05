@@ -1,0 +1,16 @@
+.tip-amount-wrapper,
+.total-amount-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: solid red 1px;
+  margin: 1.5em 1em 3em 1em;
+}
+
+.amount-label {
+  color: white;
+}
+
+.dollar-amount {
+  color: hsl(172, 67%, 45%);
+}
