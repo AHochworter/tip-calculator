@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Bill from '../Bill/Bill';
 import Tip from '../Tip/Tip';
@@ -10,11 +10,42 @@ function App() {
     numOfPeople: 0,
   });
 
+  const [amounts, setAmounts] = useState({
+    tipAmountPerPerson: 0,
+    totalAmountPerPerson: 0,
+  });
+
   const updateBillData = data => {
     setBillData({ ...billData, ...data });
   };
 
-  //function to do the math might go here??  There's a note over in Tip component?  Devin thinks we might try it here first.
+  useEffect(() => {
+    calculateAmounts();
+  }, [billData]);
+
+  const calculateAmounts = () => {
+    const bill = parseFloat(billData.bill);
+    const tipPercent = parseFloat(billData.tipPercent);
+    const numOfPeople = parseFloat(billData.numOfPeople);
+
+    //calculate tip amount
+    const tipAmount = (bill * tipPercent) / 100;
+    console.log('tipAmount', tipAmount);
+
+    //calculate total amount with tip
+    const totalAmount = bill + tipAmount;
+    console.log('bill', billData.bill);
+
+    //calculate amounts per person
+    const tipAmountPerPerson = tipAmount / numOfPeople;
+    console.log('tipAmountPerPerson', tipAmountPerPerson);
+    const totalAmountPerPerson = totalAmount / numOfPeople;
+
+    setAmounts({
+      tipAmountPerPerson,
+      totalAmountPerPerson,
+    });
+  };
 
   return (
     <div className="app">
@@ -26,7 +57,11 @@ function App() {
           <Bill billData={billData} updateBillData={updateBillData} />
         </div>
         <div className="tip-wrapper">
-          <Tip billData={billData} />
+          <Tip
+            billData={billData}
+            tipAmountPerPerson={amounts.tipAmountPerPerson}
+            totalAmountPerPerson={amounts.totalAmountPerPerson}
+          />
         </div>
       </div>
     </div>
