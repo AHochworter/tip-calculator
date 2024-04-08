@@ -24,27 +24,37 @@ function App() {
   }, [billData]);
 
   const calculateAmounts = () => {
-    const bill = parseFloat(billData.bill);
-    const tipPercent = parseFloat(billData.tipPercent);
-    const numOfPeople = parseFloat(billData.numOfPeople);
+    // Destructure values from billData
+    const { bill, tipPercent, numOfPeople } = billData;
 
-    //calculate tip amount
-    const tipAmount = (bill * tipPercent) / 100;
-    console.log('tipAmount', tipAmount);
+    // Convert bill, tipPercent, and numOfPeople to numbers
+    const billAmount = parseFloat(bill);
+    const tipPercentage = parseFloat(tipPercent);
+    const peopleCount = parseFloat(numOfPeople);
 
-    //calculate total amount with tip
-    const totalAmount = bill + tipAmount;
-    console.log('bill', billData.bill);
+    if (billAmount !== 0 && tipPercentage !== 0 && peopleCount !== 0) {
+      // Calculate tip amount
+      const tipAmount = (billAmount * tipPercentage) / 100;
 
-    //calculate amounts per person
-    const tipAmountPerPerson = tipAmount / numOfPeople;
-    console.log('tipAmountPerPerson', tipAmountPerPerson);
-    const totalAmountPerPerson = totalAmount / numOfPeople;
+      // Calculate total amount with tip
+      const totalAmount = billAmount + tipAmount;
 
-    setAmounts({
-      tipAmountPerPerson,
-      totalAmountPerPerson,
-    });
+      // Calculate amounts per person
+      const tipAmountPerPerson = tipAmount / peopleCount;
+      const totalAmountPerPerson = totalAmount / peopleCount;
+
+      // Update state with calculated amounts
+      setAmounts({
+        tipAmountPerPerson,
+        totalAmountPerPerson,
+      });
+    } else {
+      // If not all required data is provided, set amounts to 0
+      setAmounts({
+        tipAmountPerPerson: 0,
+        totalAmountPerPerson: 0,
+      });
+    }
   };
 
   return (
