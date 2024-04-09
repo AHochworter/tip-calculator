@@ -2,12 +2,25 @@ import React, { useState } from 'react';
 import './Bill.css';
 
 function Bill({ billData, updateBillData }) {
+  //these two uses of state are an attempt to clear the 0 placeholder when you tab into the input fields.
+  const [billPlaceholder, setBillPlaceholder] = useState('0');
+  const [numOfPeoplePlaceholder, setNumOfPeoplePlaceholder] = useState('0');
+
   const setValueFromForm = event => {
     const { name, value } = event.target;
 
     const numericalValue = value.includes('%') ? parseFloat(value) : value;
 
     updateBillData({ [name]: numericalValue });
+  };
+
+  // this is the function that will set the placeholders to an empty string
+  const clearPlaceholder = field => {
+    if (field === 'bill') {
+      setBillPlaceholder('');
+    } else if (field === 'numOfPeople') {
+      setNumOfPeoplePlaceholder('');
+    }
   };
 
   return (
@@ -23,7 +36,8 @@ function Bill({ billData, updateBillData }) {
             id="bill"
             name="bill"
             className="input-field"
-            placeholder="0"
+            placeholder={billPlaceholder}
+            onFocus={() => clearPlaceholder('bill')}
             value={billData.bill}
             onChange={setValueFromForm}
           />
@@ -88,7 +102,8 @@ function Bill({ billData, updateBillData }) {
             id="num-of-people"
             name="numOfPeople"
             className="input-field num-people"
-            placeholder="0"
+            placeholder={numOfPeoplePlaceholder}
+            onFocus={() => clearPlaceholder('numOfPeople')}
             value={billData.numOfPeople}
             onChange={setValueFromForm}
           />

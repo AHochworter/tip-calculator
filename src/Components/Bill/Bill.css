@@ -14,6 +14,12 @@
   font-weight: bold;
 }
 
+/* Add focus color to the tip button that has been clicked */
+.button:focus {
+  outline: none;
+  background-color: hsl(172, 67%, 45%);
+}
+
 .form-bill-input {
   display: flex;
   flex-direction: column;
