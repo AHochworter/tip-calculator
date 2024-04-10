@@ -5,9 +5,9 @@ import Tip from '../Tip/Tip';
 
 function App() {
   const [billData, setBillData] = useState({
-    bill: null,
-    tipPercent: null,
-    numOfPeople: null,
+    bill: "",
+    tipPercent: 0,
+    numOfPeople: "",
   });
 
   const [amounts, setAmounts] = useState({
