@@ -14,3 +14,19 @@
 .dollar-amount {
   color: hsl(172, 67%, 45%);
 }
+
+.reset-button-wrapper {
+  display: flex;
+  height: 5em;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.reset {
+  height: 3em;
+  width: 22em;
+  background-color: #0D686D;
+  border: none;
+  border-radius: 5px;
+}
