@@ -1,7 +1,17 @@
 import React from 'react';
 import './Tip.css';
 
-function Tip({ billData, tipAmountPerPerson, totalAmountPerPerson }) {
+function Tip({ setBillData, tipAmountPerPerson, totalAmountPerPerson }) {
+
+  const resetForm = (event) => {
+    event.preventDefault()
+    setBillData({
+      bill: "",
+      tipPercent: 0,
+      numOfPeople: ""
+    })
+  }
+
   return (
     <>
       <div className="tip-amount-wrapper">
@@ -24,6 +34,13 @@ function Tip({ billData, tipAmountPerPerson, totalAmountPerPerson }) {
             : `$${totalAmountPerPerson.toFixed(2)}`}
         </h2>
       </div>
+      <div className='reset-button-wrapper'>
+          <button
+          className='reset'
+          onClick={(event) => resetForm(event)}
+          >RESET
+          </button>
+        </div>
     </>
   );
 }
