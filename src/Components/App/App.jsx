@@ -5,9 +5,9 @@ import Tip from '../Tip/Tip';
 
 function App() {
   const [billData, setBillData] = useState({
-    bill: 0,
-    tipPercent: 0,
-    numOfPeople: 0,
+    bill: null,
+    tipPercent: null,
+    numOfPeople: null,
   });
 
   const [amounts, setAmounts] = useState({
@@ -24,32 +24,24 @@ function App() {
   }, [billData]);
 
   const calculateAmounts = () => {
-    // Destructure values from billData
+
     const { bill, tipPercent, numOfPeople } = billData;
 
-    // Convert bill, tipPercent, and numOfPeople to numbers
     const billAmount = parseFloat(bill);
     const tipPercentage = parseFloat(tipPercent);
     const peopleCount = parseFloat(numOfPeople);
 
     if (billAmount !== 0 && tipPercentage !== 0 && peopleCount !== 0) {
-      // Calculate tip amount
       const tipAmount = (billAmount * tipPercentage) / 100;
-
-      // Calculate total amount with tip
       const totalAmount = billAmount + tipAmount;
-
-      // Calculate amounts per person
       const tipAmountPerPerson = tipAmount / peopleCount;
       const totalAmountPerPerson = totalAmount / peopleCount;
 
-      // Update state with calculated amounts
       setAmounts({
         tipAmountPerPerson,
         totalAmountPerPerson,
       });
     } else {
-      // If not all required data is provided, set amounts to 0
       setAmounts({
         tipAmountPerPerson: 0,
         totalAmountPerPerson: 0,
