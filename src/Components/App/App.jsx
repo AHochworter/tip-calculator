@@ -60,7 +60,7 @@ function App() {
         </div>
         <div className="tip-wrapper">
           <Tip
-            billData={billData}
+            setBillData={setBillData}
             tipAmountPerPerson={amounts.tipAmountPerPerson}
             totalAmountPerPerson={amounts.totalAmountPerPerson}
           />
