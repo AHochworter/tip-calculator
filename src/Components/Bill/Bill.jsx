@@ -62,6 +62,7 @@ function Bill({ billData, updateBillData }) {
             className="button"
             name="tipPercent"
             value="25%"
+            onClick={setValueFromForm}
           />
           <input
             type="button"
