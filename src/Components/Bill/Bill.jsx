@@ -2,26 +2,15 @@ import React, { useState } from 'react';
 import './Bill.css';
 
 function Bill({ billData, updateBillData }) {
-  //these two uses of state are an attempt to clear the 0 placeholder when you tab into the input fields.
-  const [billPlaceholder, setBillPlaceholder] = useState('0');
-  const [numOfPeoplePlaceholder, setNumOfPeoplePlaceholder] = useState('0');
 
   const setValueFromForm = event => {
     const { name, value } = event.target;
-
+    
     const numericalValue = value.includes('%') ? parseFloat(value) : value;
-
+  
     updateBillData({ [name]: numericalValue });
   };
 
-  // this is the function that will set the placeholders to an empty string
-  const clearPlaceholder = field => {
-    if (field === 'bill') {
-      setBillPlaceholder('');
-    } else if (field === 'numOfPeople') {
-      setNumOfPeoplePlaceholder('');
-    }
-  };
 
   return (
     <form className="form-bill-input">
@@ -36,8 +25,7 @@ function Bill({ billData, updateBillData }) {
             id="bill"
             name="bill"
             className="input-field"
-            placeholder={billPlaceholder}
-            onFocus={() => clearPlaceholder('bill')}
+            placeholder="0"
             value={billData.bill}
             onChange={setValueFromForm}
           />
@@ -74,6 +62,7 @@ function Bill({ billData, updateBillData }) {
             className="button"
             name="tipPercent"
             value="25%"
+            onClick={setValueFromForm}
           />
           <input
             type="button"
@@ -87,7 +76,7 @@ function Bill({ billData, updateBillData }) {
             className="button"
             name="tipPercent"
             value="Custom"
-            onClick={setValueFromForm} //don't think this is going to work
+            onClick={setValueFromForm}
           />
         </div>
       </div>
@@ -102,8 +91,7 @@ function Bill({ billData, updateBillData }) {
             id="num-of-people"
             name="numOfPeople"
             className="input-field num-people"
-            placeholder={numOfPeoplePlaceholder}
-            onFocus={() => clearPlaceholder('numOfPeople')}
+            placeholder="0"
             value={billData.numOfPeople}
             onChange={setValueFromForm}
           />
