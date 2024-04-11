@@ -7,7 +7,7 @@ function Tip({ setBillData, tipAmountPerPerson, totalAmountPerPerson }) {
     event.preventDefault()
     setBillData({
       bill: "",
-      tipPercent: 0,
+      tipPercent: "",
       numOfPeople: ""
     })
   }
