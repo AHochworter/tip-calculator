@@ -7,9 +7,20 @@ function Bill({ billData, updateBillData }) {
 
   const setValueFromForm = event => {
     const { name, value } = event.target;
+    let numericalValue;
 
-    const numericalValue = value.includes('%') ? parseFloat(value) : value;
-
+    if (
+      name === 'tipPercent' &&
+      value !== 'Custom' // Check if the clicked button is not "Custom"
+    ) {
+      setShowCustomInput(false); // Hide the custom input
+      numericalValue = value.includes('%') ? parseFloat(value) : value;
+    } else if (value === 'Custom') {
+      setShowCustomInput(true);
+      numericalValue = '';
+    } else {
+      numericalValue = parseFloat(value);
+    }
     updateBillData({ [name]: numericalValue });
   };
 
@@ -24,8 +35,6 @@ function Bill({ billData, updateBillData }) {
   const handleCustomAmountSubmit = event => {
     event.preventDefault();
     updateBillData({ tipPercent: parseFloat(customTip) });
-    // setShowCustomInput(false);
-    setCustomTip('');
   };
 
   return (
