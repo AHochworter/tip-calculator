@@ -2,15 +2,31 @@ import React, { useState } from 'react';
 import './Bill.css';
 
 function Bill({ billData, updateBillData }) {
+  const [showCustomInput, setShowCustomInput] = useState(false);
+  const [customTip, setCustomTip] = useState('');
 
   const setValueFromForm = event => {
     const { name, value } = event.target;
-    
+
     const numericalValue = value.includes('%') ? parseFloat(value) : value;
-  
+
     updateBillData({ [name]: numericalValue });
   };
 
+  const handleCustomClick = () => {
+    setShowCustomInput(true);
+  };
+
+  const handleCustomAmountChange = event => {
+    setCustomTip(event.target.value);
+  };
+
+  const handleCustomAmountSubmit = event => {
+    event.preventDefault();
+    updateBillData({ tipPercent: parseFloat(customTip) });
+    // setShowCustomInput(false);
+    setCustomTip('');
+  };
 
   return (
     <form className="form-bill-input">
@@ -76,8 +92,26 @@ function Bill({ billData, updateBillData }) {
             className="button"
             name="tipPercent"
             value="Custom"
-            onClick={setValueFromForm}
+            onClick={handleCustomClick}
           />
+          <div>
+            {showCustomInput && (
+              <div>
+                <input
+                  type="text"
+                  name="custom-tip-amount"
+                  value={customTip}
+                  onChange={handleCustomAmountChange}
+                />
+                <button
+                  className="btn-submit-custom"
+                  onClick={handleCustomAmountSubmit}
+                >
+                  Submit
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <div className="num-of-people-wrapper">
