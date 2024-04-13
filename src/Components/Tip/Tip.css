@@ -29,3 +29,8 @@
   border: none;
   border-radius: 5px;
 }
+
+.reset:hover {
+  cursor: pointer;
+  background-color: #9FE8DF;
+}
