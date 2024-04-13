@@ -8,16 +8,21 @@
   width: 7em;
   background-color: #00474a;
   color: white;
+  border: none;
   border-radius: 10px;
   margin: 0.25em;
   font-family: 'Space Mono', monospace;
   font-weight: bold;
 }
 
+.button:focus {
+  color: #00474a;
+}
+
 /* Add focus color to the tip button that has been clicked */
 .button:focus {
   outline: none;
-  background-color: hsl(172, 67%, 45%);
+  background-color: #9FE8DF;
 }
 
 .form-bill-input {
