@@ -15,12 +15,12 @@
   font-weight: bold;
 }
 
-.button:focus {
+/* .button:focus {
   color: #00474a;
-}
+} */
 
 /* Add focus color to the tip button that has been clicked */
-.button:focus {
+.button.clicked {
   outline: none;
   background-color: #9FE8DF;
 }
