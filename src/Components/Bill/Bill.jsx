@@ -7,24 +7,24 @@ function Bill({ billData, updateBillData }) {
 
   const setValueFromForm = eventOrValue => {
     if (typeof eventOrValue === 'object') {
-      // If eventOrValue is an event object
       const { name, value } = eventOrValue.target;
       updateBillData({ [name]: parseFloat(value) });
 
       if (name === 'tipPercent') {
         if (value !== 'Custom') {
-          setClickedButton(value); // Update clicked button state
+          setClickedButton(value);
+          setCustomTip('');
+        } else {
+          setClickedButton('');
         }
       }
     } else {
-      // If eventOrValue is a value directly
       if (eventOrValue !== 'Custom') {
-        setClickedButton(eventOrValue); // Update clicked button state
+        setClickedButton(eventOrValue);
         updateBillData({ tipPercent: parseFloat(eventOrValue) });
+        setCustomTip('');
       } else {
-        // If custom tip is selected, update the clicked button state and set customTip state
         setClickedButton('');
-        updateBillData({ tipPercent: parseFloat(customTip) });
       }
     }
   };
@@ -33,6 +33,10 @@ function Bill({ billData, updateBillData }) {
     const value = event.target.value;
     setCustomTip(value);
     updateBillData({ tipPercent: parseFloat(value) });
+  };
+
+  const resetButtonColors = () => {
+    setClickedButton('');
   };
 
   return (
@@ -100,6 +104,7 @@ function Bill({ billData, updateBillData }) {
             name="customTip"
             placeholder="Custom"
             value={customTip}
+            onClick={resetButtonColors}
             onChange={handleCustomTipChange}
           />
         </div>
