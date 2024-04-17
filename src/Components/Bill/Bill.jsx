@@ -6,22 +6,11 @@ function Bill({ billData, updateBillData }) {
   const [clickedButton, setClickedButton] = useState("")
 
   const setValueFromForm = (eventOrValue) => {
-    let name, value;
     
     if (typeof eventOrValue === 'object') {
       // If eventOrValue is an event object
       const { name, value } = eventOrValue.target;
       updateBillData({ [name]: parseFloat(value) });
-  
-      if (
-        name === 'tipPercent' &&
-        value !== 'Custom' // Check if the clicked button is not "Custom"
-      ) {
-        setShowCustomInput(false); // Hide the custom input
-      } else if (value === 'Custom') {
-        setShowCustomInput(true);
-      }
-      
       setClickedButton(value);
     } else {
       // If eventOrValue is a value directly
