@@ -20,10 +20,19 @@
   color: #00474a;
 } */
 
-/* Add focus color to the tip button that has been clicked */
+/* Apply background color when button is clicked */
 .button.clicked {
-  outline: none;
-  background-color: #9FE8DF;
+  background-color: #9fe8df;
+}
+
+/* Apply original background color when button is not clicked */
+.button.active {
+  background-color: #00474a;
+}
+
+/* Apply hover effect on active state */
+.button.active:hover {
+  background-color: #003d41;
 }
 
 .form-bill-input {

@@ -3,36 +3,41 @@ import './Bill.css';
 
 function Bill({ billData, updateBillData }) {
   const [customTip, setCustomTip] = useState('');
-  const [clickedButton, setClickedButton] = useState("")
+  const [clickedButton, setClickedButton] = useState('');
 
-  const setValueFromForm = (eventOrValue) => {
-    let name, value;
-    
+  const setValueFromForm = eventOrValue => {
     if (typeof eventOrValue === 'object') {
-      // If eventOrValue is an event object
       const { name, value } = eventOrValue.target;
       updateBillData({ [name]: parseFloat(value) });
-  
-      if (
-        name === 'tipPercent' &&
-        value !== 'Custom' // Check if the clicked button is not "Custom"
-      ) {
-        setShowCustomInput(false); // Hide the custom input
-      } else if (value === 'Custom') {
-        setShowCustomInput(true);
+
+      if (name === 'tipPercent') {
+        if (value !== 'Custom') {
+          setClickedButton(value);
+          setCustomTip('');
+        } else {
+          setClickedButton('');
+        }
       }
-      
-      setClickedButton(value);
     } else {
-      // If eventOrValue is a value directly
-      updateBillData({ tipPercent: parseFloat(eventOrValue) });
-      setClickedButton(eventOrValue);
+      if (eventOrValue !== 'Custom') {
+        setClickedButton(eventOrValue);
+        updateBillData({ tipPercent: parseFloat(eventOrValue) });
+        setCustomTip('');
+      } else {
+        setClickedButton('');
+      }
     }
   };
-  
 
+  const handleCustomTipChange = event => {
+    const value = event.target.value;
+    setCustomTip(value);
+    updateBillData({ tipPercent: parseFloat(value) });
+  };
 
-
+  const resetButtonColors = () => {
+    setClickedButton('');
+  };
 
   return (
     <form className="form-bill-input">
@@ -60,35 +65,35 @@ function Bill({ billData, updateBillData }) {
         <div className="button-wrapper">
           <input
             type="button"
-            className={`button ${clickedButton === '5%' ? 'clicked' : ""}`} 
+            className={`button ${clickedButton === '5%' ? 'clicked' : ''}`}
             name="tipPercent"
             value="5%"
             onClick={() => setValueFromForm('5%')}
           />
           <input
             type="button"
-            className={`button ${clickedButton === '10%' ? 'clicked' : ""}`} 
+            className={`button ${clickedButton === '10%' ? 'clicked' : ''}`}
             name="tipPercent"
             value="10%"
             onClick={() => setValueFromForm('10%')}
           />
           <input
             type="button"
-            className={`button ${clickedButton === '15%' ? 'clicked' : ""}`} 
+            className={`button ${clickedButton === '15%' ? 'clicked' : ''}`}
             name="tipPercent"
             value="15%"
             onClick={() => setValueFromForm('15%')}
           />
           <input
             type="button"
-            className={`button ${clickedButton === '25%' ? 'clicked' : ""}`} 
+            className={`button ${clickedButton === '25%' ? 'clicked' : ''}`}
             name="tipPercent"
             value="25%"
             onClick={() => setValueFromForm('25%')}
           />
           <input
             type="button"
-            className={`button ${clickedButton === '50%' ? 'clicked' : ""}`} 
+            className={`button ${clickedButton === '50%' ? 'clicked' : ''}`}
             name="tipPercent"
             value="50%"
             onClick={() => setValueFromForm('50%')}
@@ -96,10 +101,11 @@ function Bill({ billData, updateBillData }) {
           <input
             type="text"
             className="custom-tip"
-            name="tipPercent"
-            placeholder='Custom'
-            value={billData.tipPercent}
-            onChange={setValueFromForm}
+            name="customTip"
+            placeholder="Custom"
+            value={customTip}
+            onClick={resetButtonColors}
+            onChange={handleCustomTipChange}
           />
         </div>
       </div>
