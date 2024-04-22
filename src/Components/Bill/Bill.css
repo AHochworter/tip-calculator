@@ -108,3 +108,26 @@
   color: black;
   margin-right: 10px;
 }
+
+@media (max-width: 500px) {
+  .form-bill-input,
+  .bill-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 0.5em;
+    /* border: solid green 1px; */
+  }
+  .bill-wrapper {
+    justify-content: center;
+  }
+  .bill-input-wrapper {
+    margin: 0.5em 0.25em 0.5em 0.25em;
+    /* border: solid rgb(249, 192, 255) 1px; */
+  }
+
+  .tip-percent-wrapper {
+    margin: 0.5em 0.25em 0.5em 0.25em;
+  }
+}

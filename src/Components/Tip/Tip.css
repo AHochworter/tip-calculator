@@ -32,5 +32,39 @@
 
 .reset:hover {
   cursor: pointer;
-  background-color: #9FE8DF;
+  background-color: #9fe8df;
+}
+
+@media (max-width: 500px) {
+  .tip-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 2em;
+  }
+
+  .tip-amount-wrapper,
+  .total-amount-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.5em 0.5em 0.25em 0.5em;
+  }
+
+  .reset-button-wrapper {
+    display: flex;
+    height: 2em;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reset {
+    height: 2em;
+    width: 18em;
+    background-color: #0d686d;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+  }
 }
