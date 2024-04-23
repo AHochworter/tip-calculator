@@ -1,42 +1,41 @@
-import React, { useState } from 'react';
-import './Bill.css';
+import React, { useState } from "react";
+import "./Bill.css";
 
-function Bill({ billData, updateBillData }) {
-  const [customTip, setCustomTip] = useState('');
-  const [clickedButton, setClickedButton] = useState('');
+function Bill({ billData, updateBillData, customTip, setCustomTip }) {
+  const [clickedButton, setClickedButton] = useState("");
 
-  const setValueFromForm = eventOrValue => {
-    if (typeof eventOrValue === 'object') {
+  const setValueFromForm = (eventOrValue) => {
+    if (typeof eventOrValue === "object") {
       const { name, value } = eventOrValue.target;
       updateBillData({ [name]: parseFloat(value) });
 
-      if (name === 'tipPercent') {
-        if (value !== 'Custom') {
+      if (name === "tipPercent") {
+        if (value !== "Custom") {
           setClickedButton(value);
-          setCustomTip('');
+          setCustomTip("");
         } else {
-          setClickedButton('');
+          setClickedButton("");
         }
       }
     } else {
-      if (eventOrValue !== 'Custom') {
+      if (eventOrValue !== "Custom") {
         setClickedButton(eventOrValue);
         updateBillData({ tipPercent: parseFloat(eventOrValue) });
-        setCustomTip('');
+        setCustomTip("");
       } else {
-        setClickedButton('');
+        setClickedButton("");
       }
     }
   };
 
-  const handleCustomTipChange = event => {
+  const handleCustomTipChange = (event) => {
     const value = event.target.value;
     setCustomTip(value);
     updateBillData({ tipPercent: parseFloat(value) });
   };
 
   const resetButtonColors = () => {
-    setClickedButton('');
+    setClickedButton("");
   };
 
   return (
@@ -65,38 +64,38 @@ function Bill({ billData, updateBillData }) {
         <div className="button-wrapper">
           <input
             type="button"
-            className={`button ${clickedButton === '5%' ? 'clicked' : ''}`}
+            className={`button ${clickedButton === "5%" ? "clicked" : ""}`}
             name="tipPercent"
             value="5%"
-            onClick={() => setValueFromForm('5%')}
+            onClick={() => setValueFromForm("5%")}
           />
           <input
             type="button"
-            className={`button ${clickedButton === '10%' ? 'clicked' : ''}`}
+            className={`button ${clickedButton === "10%" ? "clicked" : ""}`}
             name="tipPercent"
             value="10%"
-            onClick={() => setValueFromForm('10%')}
+            onClick={() => setValueFromForm("10%")}
           />
           <input
             type="button"
-            className={`button ${clickedButton === '15%' ? 'clicked' : ''}`}
+            className={`button ${clickedButton === "15%" ? "clicked" : ""}`}
             name="tipPercent"
             value="15%"
-            onClick={() => setValueFromForm('15%')}
+            onClick={() => setValueFromForm("15%")}
           />
           <input
             type="button"
-            className={`button ${clickedButton === '25%' ? 'clicked' : ''}`}
+            className={`button ${clickedButton === "25%" ? "clicked" : ""}`}
             name="tipPercent"
             value="25%"
-            onClick={() => setValueFromForm('25%')}
+            onClick={() => setValueFromForm("25%")}
           />
           <input
             type="button"
-            className={`button ${clickedButton === '50%' ? 'clicked' : ''}`}
+            className={`button ${clickedButton === "50%" ? "clicked" : ""}`}
             name="tipPercent"
             value="50%"
-            onClick={() => setValueFromForm('50%')}
+            onClick={() => setValueFromForm("50%")}
           />
           <input
             type="text"

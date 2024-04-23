@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import Bill from '../Bill/Bill';
-import Tip from '../Tip/Tip';
+import { useState, useEffect } from "react";
+import "./App.css";
+import Bill from "../Bill/Bill";
+import Tip from "../Tip/Tip";
 
 function App() {
   const [billData, setBillData] = useState({
@@ -10,12 +10,14 @@ function App() {
     numOfPeople: "",
   });
 
+  const [customTip, setCustomTip] = useState("");
+
   const [amounts, setAmounts] = useState({
     tipAmountPerPerson: 0,
     totalAmountPerPerson: 0,
   });
 
-  const updateBillData = data => {
+  const updateBillData = (data) => {
     setBillData({ ...billData, ...data });
   };
 
@@ -24,7 +26,6 @@ function App() {
   }, [billData]);
 
   const calculateAmounts = () => {
-
     const { bill, tipPercent, numOfPeople } = billData;
 
     const billAmount = parseFloat(bill);
@@ -49,6 +50,10 @@ function App() {
     }
   };
 
+  const resetCustomTip = () => {
+    setCustomTip("");
+  };
+
   return (
     <div className="app">
       <header className="header">
@@ -56,13 +61,19 @@ function App() {
       </header>
       <div className="calculator-wrapper">
         <div className="bill-wrapper">
-          <Bill billData={billData} updateBillData={updateBillData} />
+          <Bill
+            billData={billData}
+            updateBillData={updateBillData}
+            customTip={customTip}
+            setCustomTip={setCustomTip}
+          />
         </div>
         <div className="tip-wrapper">
           <Tip
             setBillData={setBillData}
             tipAmountPerPerson={amounts.tipAmountPerPerson}
             totalAmountPerPerson={amounts.totalAmountPerPerson}
+            resetCustomTip={resetCustomTip}
           />
         </div>
       </div>
