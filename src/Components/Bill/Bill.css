@@ -4,8 +4,7 @@
   align-items: center;
 }
 
-.button,
-.custom-tip {
+.button {
   height: 3em;
   width: 7em;
   background-color: #00474a;
@@ -13,7 +12,7 @@
   border: none;
   border-radius: 10px;
   margin: 0.25em;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   font-weight: bold;
 }
 
@@ -58,6 +57,19 @@
   margin-bottom: 1.2em;
   width: 95%;
   /* border: solid green 1px; */
+}
+
+.custom-tip {
+  background-color: hsl(189, 41%, 97%);
+  height: 3em;
+  width: 7em;
+  color: hsl(184, 14%, 56%);
+  border: none;
+  border-radius: 10px;
+  margin: 0.25em;
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+  text-align: center;
 }
 
 .num-of-people-wrapper {
