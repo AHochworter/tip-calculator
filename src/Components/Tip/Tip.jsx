@@ -1,16 +1,21 @@
-import React from 'react';
-import './Tip.css';
+import React from "react";
+import "./Tip.css";
 
-function Tip({ setBillData, tipAmountPerPerson, totalAmountPerPerson }) {
-
+function Tip({
+  setBillData,
+  tipAmountPerPerson,
+  totalAmountPerPerson,
+  resetCustomTip,
+}) {
   const resetForm = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     setBillData({
       bill: "",
       tipPercent: "",
-      numOfPeople: ""
-    })
-  }
+      numOfPeople: "",
+    });
+    resetCustomTip("");
+  };
 
   return (
     <>
@@ -20,7 +25,7 @@ function Tip({ setBillData, tipAmountPerPerson, totalAmountPerPerson }) {
         </label>
         <h2 className="dollar-amount">
           {isNaN(tipAmountPerPerson)
-            ? '0.00'
+            ? "0.00"
             : `$${tipAmountPerPerson.toFixed(2)}`}
         </h2>
       </div>
@@ -30,17 +35,15 @@ function Tip({ setBillData, tipAmountPerPerson, totalAmountPerPerson }) {
         </label>
         <h2 className="dollar-amount">
           {isNaN(totalAmountPerPerson)
-            ? '0.00'
+            ? "0.00"
             : `$${totalAmountPerPerson.toFixed(2)}`}
         </h2>
       </div>
-      <div className='reset-button-wrapper'>
-          <button
-          className='reset'
-          onClick={(event) => resetForm(event)}
-          >RESET
-          </button>
-        </div>
+      <div className="reset-button-wrapper">
+        <button className="reset" onClick={(event) => resetForm(event)}>
+          RESET
+        </button>
+      </div>
     </>
   );
 }
