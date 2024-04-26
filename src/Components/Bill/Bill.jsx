@@ -111,18 +111,19 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
       <div className="num-of-people-wrapper">
         <label htmlFor="number-of-people" className="num-people-label">
           Number of People
+          {billData.numOfPeople === 0 && (<p className="error-zero">Can't be zero</p>)}
         </label>
         <div className="input-with-icon">
           <img src="src/assets/images/icon-person.svg" className="input-icon" />
-          <input
-            type="number"
-            id="num-of-people"
-            name="numOfPeople"
-            className="input-field num-people"
-            placeholder="0"
-            value={billData.numOfPeople}
-            onChange={setValueFromForm}
-          />
+            <input
+              type="number"
+              id="num-of-people"
+              name="numOfPeople"
+              className="input-field num-people"
+              placeholder="0"
+              value={billData.numOfPeople}
+              onChange={setValueFromForm}
+              />
         </div>
       </div>
     </form>
@@ -130,3 +131,11 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
 }
 
 export default Bill;
+
+
+/**
+ if the input value is 0, show the input and the p tag indicating that the value cannot be 0
+ if the input value is an integer > than 0, render the input AND don't render the p tag.
+
+
+ */
