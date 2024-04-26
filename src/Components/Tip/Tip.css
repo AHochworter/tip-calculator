@@ -3,15 +3,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 1.5em 1em 3em 1em;
+  margin: 1.5em 1em 4em 1em;
 }
 
 .amount-label {
   color: white;
+  font-size: .9em;
 }
 
 .dollar-amount {
+  margin: 0;
   color: hsl(172, 67%, 45%);
+  font-size: 2.6em;
 }
 
 .reset-button-wrapper {
@@ -23,11 +26,15 @@
 }
 
 .reset {
-  height: 3em;
-  width: 22em;
+  height: 2.7em;
+  width: 19em;
   background-color: #0d686d;
   border: none;
   border-radius: 5px;
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+  font-size: 1em;
+  color: #00474a;
 }
 
 .reset:hover {
