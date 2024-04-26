@@ -25,7 +25,7 @@ function Tip({
         </label>
         <h2 className="dollar-amount">
           {isNaN(tipAmountPerPerson)
-            ? "0.00"
+            ? "$0.00"
             : `$${tipAmountPerPerson.toFixed(2)}`}
         </h2>
       </div>
@@ -35,7 +35,7 @@ function Tip({
         </label>
         <h2 className="dollar-amount">
           {isNaN(totalAmountPerPerson)
-            ? "0.00"
+            ? "$0.00"
             : `$${totalAmountPerPerson.toFixed(2)}`}
         </h2>
       </div>
