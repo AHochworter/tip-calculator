@@ -24,15 +24,6 @@
   color:#003d41;
 }
 
-/* Apply original background color when button is not clicked */
-.button.active {
-  background-color: #00474a;
-}
-
-/* Apply hover effect on active state */
-.button.active:hover {
-  background-color: #003d41;
-}
 
 .form-bill-input {
   display: flex;
@@ -98,8 +89,8 @@
 }
 
 .tip-percent-label {
-  display: block; /* Change to block */
-  margin-bottom: 0.5em; /* Add margin-bottom for spacing */
+  display: block; 
+  margin-bottom: 0.5em; 
 }
 
 .button-wrapper {
@@ -136,7 +127,7 @@
 .input-icon {
   position: absolute;
   top: 50%;
-  left: 10px; /* Adjust this value as needed */
+  left: 10px; 
   transform: translateY(-50%);
 }
 
@@ -148,9 +139,10 @@
 }
 
 .error-zero {
-  color: rgb(206, 79, 0);
+  color: hsl(23, 100%, 40%);
   margin: 0;
 }
+
 
 @media (max-width: 950px) {
   .tip-percent-wrapper {
