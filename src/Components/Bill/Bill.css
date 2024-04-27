@@ -17,13 +17,11 @@
   font-size: 1.2em;
 }
 
-/* .button:focus {
-  color: #00474a;
-} */
 
 /* Apply background color when button is clicked */
 .button.clicked {
   background-color: #9fe8df;
+  color:#003d41;
 }
 
 /* Apply original background color when button is not clicked */
@@ -65,12 +63,18 @@
   border: none;
   border-radius: 7px;
   margin: 0.25em;
-  color: hsl(184, 14%, 56%);
+  color: hsl(183, 100%, 15%);
   padding: 0;
   font-family: "Space Mono", monospace;
   font-size: 1.2em;
   font-weight: bold;
   text-align: center;
+  outline: none; 
+}
+
+.custom-tip:focus,
+.input-field:focus {
+  box-shadow: 0 0 0 2px hsl(172, 67%, 45%);
 }
 
 .custom-tip::placeholder {
@@ -118,6 +122,7 @@
   font-family: "Space Mono", monospace;
   font-weight: bold;
   color: hsl(184, 14%, 56%);
+  outline: none; 
 }
 
 .input-field::placeholder {
