@@ -147,7 +147,13 @@
   margin: 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 950px) {
+  .tip-percent-wrapper {
+    margin: .7em 0em .7em 0em;
+  }
+}
+
+@media (max-width: 600px) {
   .form-bill-input {
     display: flex;
     flex-direction: column;
@@ -161,7 +167,6 @@
   }
   .bill-input-wrapper {
     margin: 1.25em 0.25em 1.5em 0.25em;
-    /* border: solid rgb(249, 192, 255) 1px; */
   }
 
   .tip-percent-wrapper {
