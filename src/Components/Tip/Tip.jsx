@@ -21,7 +21,7 @@ function Tip({
     <>
       <div className="tip-amount-wrapper">
         <label htmlFor="tip-amount" className="amount-label">
-          Tip Amount <br /> / person
+          Tip Amount <br/> <span className="per-person">/ person</span> 
         </label>
         <h2 className="dollar-amount">
           {isNaN(tipAmountPerPerson)
@@ -31,7 +31,7 @@ function Tip({
       </div>
       <div className="total-amount-wrapper">
         <label htmlFor="total-amount" className="amount-label">
-          Total Amount <br /> / person
+          Total Amount <br/> <span className="per-person">/ person</span> 
         </label>
         <h2 className="dollar-amount">
           {isNaN(totalAmountPerPerson)
