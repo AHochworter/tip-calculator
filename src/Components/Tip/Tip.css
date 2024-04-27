@@ -17,6 +17,10 @@
   font-size: 2.6em;
 }
 
+.per-person {
+  font-size: .8em;
+}
+
 .reset-button-wrapper {
   display: flex;
   height: 5em;
