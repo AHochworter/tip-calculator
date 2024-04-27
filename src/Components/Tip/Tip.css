@@ -19,6 +19,7 @@
 
 .per-person {
   font-size: .8em;
+  color: hsl(184, 14%, 56%);
 }
 
 .reset-button-wrapper {
