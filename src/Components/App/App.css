@@ -45,13 +45,15 @@ h2 {
 
 @media (max-width: 950px) {
   .calculator-wrapper {
-    width: 98%;
-    height: 100%;
+    /* width: 98%;
+    height: 100%; */
     margin: 0.25em 0em 0.5em 0em;
+    height: 27em;
+    width: 98%;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .app {
     height: 100vh;
   }

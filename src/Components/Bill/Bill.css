@@ -17,24 +17,13 @@
   font-size: 1.2em;
 }
 
-/* .button:focus {
-  color: #00474a;
-} */
 
 /* Apply background color when button is clicked */
 .button.clicked {
   background-color: #9fe8df;
+  color:#003d41;
 }
 
-/* Apply original background color when button is not clicked */
-.button.active {
-  background-color: #00474a;
-}
-
-/* Apply hover effect on active state */
-.button.active:hover {
-  background-color: #003d41;
-}
 
 .form-bill-input {
   display: flex;
@@ -65,12 +54,18 @@
   border: none;
   border-radius: 7px;
   margin: 0.25em;
-  color: hsl(184, 14%, 56%);
+  color: hsl(183, 100%, 15%);
   padding: 0;
   font-family: "Space Mono", monospace;
   font-size: 1.2em;
   font-weight: bold;
   text-align: center;
+  outline: none; 
+}
+
+.custom-tip:focus,
+.input-field:focus {
+  box-shadow: 0 0 0 2px hsl(172, 67%, 45%);
 }
 
 .custom-tip::placeholder {
@@ -94,8 +89,8 @@
 }
 
 .tip-percent-label {
-  display: block; /* Change to block */
-  margin-bottom: 0.5em; /* Add margin-bottom for spacing */
+  display: block; 
+  margin-bottom: 0.5em; 
 }
 
 .button-wrapper {
@@ -118,6 +113,7 @@
   font-family: "Space Mono", monospace;
   font-weight: bold;
   color: hsl(184, 14%, 56%);
+  outline: none; 
 }
 
 .input-field::placeholder {
@@ -131,7 +127,7 @@
 .input-icon {
   position: absolute;
   top: 50%;
-  left: 10px; /* Adjust this value as needed */
+  left: 10px; 
   transform: translateY(-50%);
 }
 
@@ -143,11 +139,18 @@
 }
 
 .error-zero {
-  color: rgb(206, 79, 0);
+  color: hsl(23, 100%, 40%);
   margin: 0;
 }
 
-@media (max-width: 500px) {
+
+@media (max-width: 950px) {
+  .tip-percent-wrapper {
+    margin: .7em 0em .7em 0em;
+  }
+}
+
+@media (max-width: 600px) {
   .form-bill-input {
     display: flex;
     flex-direction: column;
@@ -161,7 +164,6 @@
   }
   .bill-input-wrapper {
     margin: 1.25em 0.25em 1.5em 0.25em;
-    /* border: solid rgb(249, 192, 255) 1px; */
   }
 
   .tip-percent-wrapper {

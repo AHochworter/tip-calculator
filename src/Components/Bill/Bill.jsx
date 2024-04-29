@@ -7,14 +7,24 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
   const setValueFromForm = (eventOrValue) => {
     if (typeof eventOrValue === "object") {
       const { name, value } = eventOrValue.target;
-      updateBillData({ [name]: parseFloat(value) });
-
-      if (name === "tipPercent") {
-        if (value !== "Custom") {
-          setClickedButton(value);
-          setCustomTip("");
-        } else {
-          setClickedButton("");
+      const parsedValue = parseFloat(value);
+  
+      if (name === "bill" || name === "numOfPeople") {
+        
+        if (parsedValue < 0) {
+          return;
+        }
+  
+        updateBillData({ [name]: parsedValue });
+      } else {
+        updateBillData({ [name]: parsedValue });
+        if (name === "tipPercent") {
+          if (value !== "Custom") {
+            setClickedButton(value);
+            setCustomTip("");
+          } else {
+            setClickedButton("");
+          }
         }
       }
     } else {
@@ -27,6 +37,7 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
       }
     }
   };
+  
 
   const handleCustomTipChange = (event) => {
     const value = event.target.value;
