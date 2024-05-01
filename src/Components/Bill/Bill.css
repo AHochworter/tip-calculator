@@ -17,13 +17,10 @@
   font-size: 1.2em;
 }
 
-
-/* Apply background color when button is clicked */
 .button.clicked {
   background-color: #9fe8df;
   color:#003d41;
 }
-
 
 .form-bill-input {
   display: flex;
