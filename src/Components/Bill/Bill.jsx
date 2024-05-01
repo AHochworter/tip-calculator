@@ -4,46 +4,55 @@ import "./Bill.css";
 function Bill({ billData, updateBillData, customTip, setCustomTip }) {
   const [clickedButton, setClickedButton] = useState("");
 
+  const parseFormValue =  (value) => {
+    const parsedValue = parseFloat(value)
+    console.log("parsedValue", parsedValue)
+    return parsedValue > 0 ? parsedValue : null;
+  }
+
+  const handleRegularInputChange = (name, value) => {
+    const parsedValue = parseFormValue(value)
+    if(parsedValue !== null) {
+      console.log("parsedValue in handleRegInput", parsedValue)
+      updateBillData({ [name]: parsedValue });
+    }
+  }
+
+  const handleTipPercentChange = (value) => {
+    if (value !== "Custom") {
+      setClickedButton(value);
+      setCustomTip("");
+      updateBillData({ "tipPercent": parseFloat(value) });
+    } else {
+      setClickedButton("");
+    }
+  }
+
+  const handleCustomTipChange = (event) => {
+    const { value } = event.target;
+    // add happy path for percentage symbol typed by user
+      setCustomTip(value); 
+      updateBillData({ "tipPercent": value });
+  };
+
+
+
   const setValueFromForm = (eventOrValue) => {
     if (typeof eventOrValue === "object") {
       const { name, value } = eventOrValue.target;
-      const parsedValue = parseFloat(value);
-  
       if (name === "bill" || name === "numOfPeople") {
-        
-        if (parsedValue < 0) {
-          return;
-        }
-  
-        updateBillData({ [name]: parsedValue });
+        handleRegularInputChange(name, value);
+      } else if (name === "tipPercent") {
+        updateBillData({ [name]: parseFloat(value) }); // Update tipPercent using updateBillData
       } else {
-        updateBillData({ [name]: parsedValue });
-        if (name === "tipPercent") {
-          if (value !== "Custom") {
-            setClickedButton(value);
-            setCustomTip("");
-          } else {
-            setClickedButton("");
-          }
-        }
+        updateBillData({ [name]: parseFloat(value) });
       }
     } else {
-      if (eventOrValue !== "Custom") {
-        setClickedButton(eventOrValue);
-        updateBillData({ tipPercent: parseFloat(eventOrValue) });
-        setCustomTip("");
-      } else {
-        setClickedButton("");
-      }
+      console.log("EventOrValue:", eventOrValue );
+      handleTipPercentChange(eventOrValue );
     }
   };
   
-
-  const handleCustomTipChange = (event) => {
-    const value = event.target.value;
-    setCustomTip(value);
-    updateBillData({ tipPercent: parseFloat(value) });
-  };
 
   const resetButtonColors = () => {
     setClickedButton("");
