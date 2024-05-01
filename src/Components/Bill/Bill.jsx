@@ -28,12 +28,13 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
 
   const handleCustomTipChange = (event) => {
     const { value } = event.target;
-    // add happy path for percentage symbol typed by user
+    if (!isNaN(value)) { 
       setCustomTip(value); 
-      updateBillData({ "tipPercent": value });
+      updateBillData({ "tipPercent": value }); 
+    } else {
+      setCustomTip(""); 
+    }
   };
-
-
 
   const setValueFromForm = (eventOrValue) => {
     if (typeof eventOrValue === "object") {
@@ -50,7 +51,6 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
     }
   };
   
-
   const resetButtonColors = () => {
     setClickedButton("");
   };
