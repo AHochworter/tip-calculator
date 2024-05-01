@@ -6,14 +6,12 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
 
   const parseFormValue =  (value) => {
     const parsedValue = parseFloat(value)
-    console.log("parsedValue", parsedValue)
     return parsedValue > 0 ? parsedValue : null;
   }
 
   const handleRegularInputChange = (name, value) => {
     const parsedValue = parseFormValue(value)
     if(parsedValue !== null) {
-      console.log("parsedValue in handleRegInput", parsedValue)
       updateBillData({ [name]: parsedValue });
     }
   }
@@ -43,12 +41,11 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
       if (name === "bill" || name === "numOfPeople") {
         handleRegularInputChange(name, value);
       } else if (name === "tipPercent") {
-        updateBillData({ [name]: parseFloat(value) }); // Update tipPercent using updateBillData
+        updateBillData({ [name]: parseFloat(value) }); 
       } else {
         updateBillData({ [name]: parseFloat(value) });
       }
     } else {
-      console.log("EventOrValue:", eventOrValue );
       handleTipPercentChange(eventOrValue );
     }
   };
@@ -151,11 +148,3 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
 }
 
 export default Bill;
-
-
-/**
- if the input value is 0, show the input and the p tag indicating that the value cannot be 0
- if the input value is an integer > than 0, render the input AND don't render the p tag.
-
-
- */
