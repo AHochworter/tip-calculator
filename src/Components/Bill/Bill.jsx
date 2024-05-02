@@ -36,16 +36,14 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
     }
   };
 
-  const setValueFromForm = (eventOrValue) => {
+  const identifyInputType = (eventOrValue) => {
     if (typeof eventOrValue === "object") {
       const { name, value } = eventOrValue.target;
       if (name === "bill" || name === "numOfPeople") {
         handleRegularInputChange(name, value);
       } else if (name === "tipPercent") {
         updateBillData({ [name]: parseFloat(value) }); 
-      } else {
-        updateBillData({ [name]: parseFloat(value) });
-      }
+      } 
     } else {
       handleTipPercentChange(eventOrValue );
     }
@@ -70,7 +68,7 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
             className="input-field"
             placeholder="0"
             value={billData.bill}
-            onChange={setValueFromForm}
+            onChange={identifyInputType}
           />
         </div>
       </div>
@@ -84,35 +82,35 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
             className={`button ${clickedButton === "5%" ? "clicked" : ""}`}
             name="tipPercent"
             value="5%"
-            onClick={() => setValueFromForm("5%")}
+            onClick={() => identifyInputType("5%")}
           />
           <input
             type="button"
             className={`button ${clickedButton === "10%" ? "clicked" : ""}`}
             name="tipPercent"
             value="10%"
-            onClick={() => setValueFromForm("10%")}
+            onClick={() => identifyInputType("10%")}
           />
           <input
             type="button"
             className={`button ${clickedButton === "15%" ? "clicked" : ""}`}
             name="tipPercent"
             value="15%"
-            onClick={() => setValueFromForm("15%")}
+            onClick={() => identifyInputType("15%")}
           />
           <input
             type="button"
             className={`button ${clickedButton === "25%" ? "clicked" : ""}`}
             name="tipPercent"
             value="25%"
-            onClick={() => setValueFromForm("25%")}
+            onClick={() => identifyInputType("25%")}
           />
           <input
             type="button"
             className={`button ${clickedButton === "50%" ? "clicked" : ""}`}
             name="tipPercent"
             value="50%"
-            onClick={() => setValueFromForm("50%")}
+            onClick={() => identifyInputType("50%")}
           />
           <input
             type="text"
@@ -139,7 +137,7 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
               className="input-field num-people"
               placeholder="0"
               value={billData.numOfPeople}
-              onChange={setValueFromForm}
+              onChange={identifyInputType}
               />
         </div>
       </div>
