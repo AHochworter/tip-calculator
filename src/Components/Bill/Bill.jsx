@@ -62,7 +62,7 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
           Bill
         </label>
         <div className="input-with-icon">
-          <img src="src/assets/images/icon-dollar.svg" className="input-icon" />
+          <img src="/assets/images/icon-dollar.svg" className="input-icon" />
           <input
             type="number"
             id="bill"
@@ -131,7 +131,7 @@ function Bill({ billData, updateBillData, customTip, setCustomTip }) {
           {billData.numOfPeople === 0 && (<p className="error-zero">Can't be zero</p>)}
         </label>
         <div className="input-with-icon">
-          <img src="src/assets/images/icon-person.svg" className="input-icon" />
+          <img src="/assets/images/icon-person.svg" className="input-icon" />
             <input
               type="number"
               id="num-of-people"

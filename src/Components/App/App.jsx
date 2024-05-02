@@ -57,7 +57,7 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <img src="src/assets/images/logo.svg" alt="splitter logo" />
+        <img src="/assets/images/logo.svg" alt="splitter logo" />
       </header>
       <div className="calculator-wrapper">
         <div className="bill-wrapper">
