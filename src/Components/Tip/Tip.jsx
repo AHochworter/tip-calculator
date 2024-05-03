@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Tip.css";
 
 function Tip({
@@ -7,6 +7,8 @@ function Tip({
   totalAmountPerPerson,
   resetCustomTip,
 }) {
+  const [clickedButton, setClickedButton] = useState("");
+
   const resetForm = (event) => {
     event.preventDefault();
     setBillData({
@@ -15,13 +17,14 @@ function Tip({
       numOfPeople: "",
     });
     resetCustomTip("");
+    setClickedButton("");
   };
 
   return (
     <>
       <div className="tip-amount-wrapper">
         <label htmlFor="tip-amount" className="amount-label">
-          Tip Amount <br/> <span className="per-person">/ person</span> 
+          Tip Amount <br /> <span className="per-person">/ person</span>
         </label>
         <h2 className="dollar-amount">
           {isNaN(tipAmountPerPerson)
@@ -31,7 +34,7 @@ function Tip({
       </div>
       <div className="total-amount-wrapper">
         <label htmlFor="total-amount" className="amount-label">
-          Total Amount <br/> <span className="per-person">/ person</span> 
+          Total Amount <br /> <span className="per-person">/ person</span>
         </label>
         <h2 className="dollar-amount">
           {isNaN(totalAmountPerPerson)
