@@ -40,7 +40,7 @@ function Tip({
         </h2>
       </div>
       <div className="reset-button-wrapper">
-        <button className="reset" onClick={(event) => resetForm(event)}>
+        <button className="reset" onClick={resetForm}>
           RESET
         </button>
       </div>
